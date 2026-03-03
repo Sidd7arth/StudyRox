@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-sky-700 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-sky-700 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950 px-4 transition-colors duration-300">
       <div className="max-w-5xl w-full grid md:grid-cols-2 gap-10 items-center">
         <div className="hidden md:block text-white space-y-4">
           <h1 className="text-4xl font-bold leading-tight">
@@ -58,26 +58,26 @@ const Login = () => {
           </ul>
         </div>
 
-        <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl p-8 md:p-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-slate-800">
+        <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-2xl rounded-2xl p-8 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-slate-800 dark:text-slate-100">
             Sign in
           </h2>
 
           {error && (
-            <div className="bg-red-100 text-red-600 p-2 mb-4 rounded-xl text-sm">
+            <div className="bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 p-2 mb-4 rounded-xl text-sm">
               {error}
             </div>
           )}
 
           <form onSubmit={submitHandler} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                 Email
               </label>
               <input
                 type="email"
                 placeholder="you@example.com"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -85,13 +85,13 @@ const Login = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="Your password"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -107,9 +107,9 @@ const Login = () => {
             </button>
           </form>
 
-          <p className="text-center mt-6 text-sm text-slate-600">
+          <p className="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
             No account?{" "}
-            <Link to="/register" className="text-indigo-600 font-semibold hover:underline">
+            <Link to="/register" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
               Sign up
             </Link>
           </p>

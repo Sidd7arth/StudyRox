@@ -10,7 +10,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [error, setError] = useState("");
@@ -45,7 +45,7 @@ const Register = () => {
         throw new Error(data?.message || "Registration failed. Please try again.");
       }
 
-      login(data); // Auto login after register
+      login(data);
       navigate("/dashboard");
     } catch (err) {
       setError(err.message || "Registration failed. Please try again.");
@@ -55,7 +55,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-700 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-700 dark:from-slate-950 dark:via-slate-900 dark:to-purple-950 px-4 transition-colors duration-300">
       <div className="max-w-5xl w-full grid md:grid-cols-2 gap-10 items-center">
         <div className="hidden md:block text-white space-y-4 order-last md:order-first">
           <h1 className="text-4xl font-bold leading-tight">
@@ -72,20 +72,20 @@ const Register = () => {
           </ul>
         </div>
 
-        <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl p-8 md:p-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-slate-800">
+        <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-2xl rounded-2xl p-8 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-slate-800 dark:text-slate-100">
             Create your account
           </h2>
 
           {error && (
-            <div className="bg-red-100 text-red-600 p-2 mb-4 rounded text-sm">
+            <div className="bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 p-2 mb-4 rounded text-sm">
               {error}
             </div>
           )}
 
           <form onSubmit={submitHandler} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                 Full name
               </label>
               <input
@@ -95,12 +95,12 @@ const Register = () => {
                 value={name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                 Email
               </label>
               <input
@@ -110,13 +110,13 @@ const Register = () => {
                 value={email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                   Password
                 </label>
                 <input
@@ -127,11 +127,11 @@ const Register = () => {
                   onChange={handleChange}
                   required
                   minLength={6}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                   Confirm password
                 </label>
                 <input
@@ -141,7 +141,7 @@ const Register = () => {
                   value={confirmPassword}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 />
               </div>
             </div>
@@ -155,9 +155,9 @@ const Register = () => {
             </button>
           </form>
 
-          <p className="text-center mt-6 text-sm text-slate-600">
+          <p className="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
             Already have an account?{" "}
-            <Link to="/login" className="text-indigo-600 font-semibold hover:underline">
+            <Link to="/login" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
               Sign in
             </Link>
           </p>

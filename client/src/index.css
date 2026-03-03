@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Enable Tailwind v4 dark-mode via the .dark class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ─────────────────────────────────────────── */
+:root {
+  --bg-page:      #f1f5f9;
+  --bg-card:      #ffffff;
+  --text-primary: #1e293b;
+  --text-muted:   #64748b;
+  --border:       #e2e8f0;
+}
+
+.dark {
+  --bg-page:      #0f172a;
+  --bg-card:      #1e293b;
+  --text-primary: #f1f5f9;
+  --text-muted:   #94a3b8;
+  --border:       #334155;
+}
+
+/* ─── Smooth theme transition ───────────────────────────────── */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}

@@ -168,7 +168,7 @@ const LandingPage = () => {
     <>
 
 
-      <main className="font-sans text-gray-800">
+      <main className="font-sans text-gray-800 dark:text-slate-100">
 
         {/* ================= HERO ================= */}
         <section
@@ -215,10 +215,10 @@ const LandingPage = () => {
 
         {/* ================= FEATURES ================= */}
         <section
-          className="py-24 px-6 text-center"
-          style={{ background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)" }}
+          className="py-24 px-6 text-center bg-slate-50 dark:bg-slate-900"
+          style={undefined}
         >
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-12 text-slate-800 dark:text-slate-100">
             Why Choose StudyRox?
           </h2>
 
@@ -243,11 +243,10 @@ const LandingPage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="p-8 shadow-xl rounded-2xl border border-slate-200/60 backdrop-blur-sm"
-                style={{ background: "linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%)" }}
+                className="p-8 shadow-xl rounded-2xl border border-slate-200/60 dark:border-slate-700 backdrop-blur-sm bg-white dark:bg-slate-800"
               >
-                <h3 className="text-xl font-semibold mb-4 text-slate-800">{feature.title}</h3>
-                <p className="text-slate-600">{feature.desc}</p>
+                <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">{feature.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -338,18 +337,17 @@ const LandingPage = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
-              style={{ background: "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)" }}
               onSubmit={handleContactSubmit}
             >
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h2 className="text-2xl font-bold text-slate-800">Contact Us</h2>
+                  <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Contact Us</h2>
                   <button
                     type="button"
                     onClick={resetContactForm}
-                    className="text-slate-500 hover:text-slate-800 text-2xl leading-none transition"
+                    className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 text-2xl leading-none transition"
                     aria-label="Close"
                   >
                     ×
@@ -358,7 +356,7 @@ const LandingPage = () => {
 
                 <div className="space-y-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                       Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -368,7 +366,7 @@ const LandingPage = () => {
                       value={formData.name}
                       onChange={handleFormChange}
                       placeholder="Enter your name"
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                       required
                     />
                     {formData.name && !isValidName(formData.name) && (
@@ -377,7 +375,7 @@ const LandingPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="mail" className="block text-sm font-medium text-slate-700 mb-1">
+                    <label htmlFor="mail" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -387,7 +385,7 @@ const LandingPage = () => {
                       value={formData.mail}
                       onChange={handleFormChange}
                       placeholder=""
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                       required
                     />
                     {formData.mail && !isValidEmail(formData.mail) && (
@@ -396,7 +394,7 @@ const LandingPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <div className="flex gap-2">
@@ -407,27 +405,27 @@ const LandingPage = () => {
                           onChange={handleCountrySearchChange}
                           onFocus={() => setShowCountrySuggestions(true)}
                           placeholder="+91"
-                          className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                          className="w-full px-3 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                           autoComplete="off"
                         />
                         {showCountrySuggestions && (
                           <ul
                             ref={countryListRef}
-                            className="absolute z-10 mt-1 w-full max-h-48 overflow-y-auto rounded-lg border border-slate-200 bg-white shadow-lg py-1"
+                            className="absolute z-10 mt-1 w-full max-h-48 overflow-y-auto rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 shadow-lg py-1"
                           >
                             {countriesLoading ? (
-                              <li className="px-3 py-2 text-sm text-slate-500">Loading...</li>
+                              <li className="px-3 py-2 text-sm text-slate-500 dark:text-slate-400">Loading...</li>
                             ) : filteredCountries.length === 0 ? (
-                              <li className="px-3 py-2 text-sm text-slate-500">No matches</li>
+                              <li className="px-3 py-2 text-sm text-slate-500 dark:text-slate-400">No matches</li>
                             ) : (
                               filteredCountries.slice(0, 50).map((c) => (
                                 <li
                                   key={`${c.name}-${c.code}`}
                                   onClick={() => selectCountry(c)}
-                                  className="px-3 py-2 text-sm cursor-pointer hover:bg-slate-100 flex justify-between"
+                                  className="px-3 py-2 text-sm cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-600 flex justify-between text-slate-800 dark:text-slate-200"
                                 >
                                   <span>{c.name}</span>
-                                  <span className="text-slate-500 font-medium">{c.code}</span>
+                                  <span className="text-slate-500 dark:text-slate-400 font-medium">{c.code}</span>
                                 </li>
                               ))
                             )}
@@ -441,7 +439,7 @@ const LandingPage = () => {
                         value={formData.phoneNumber}
                         onChange={handleFormChange}
                         placeholder="XXXXXXXXXX"
-                        className="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                        className="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                         required
                       />
                     </div>
@@ -454,7 +452,7 @@ const LandingPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="remarks" className="block text-sm font-medium text-slate-700 mb-1">
+                    <label htmlFor="remarks" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                       Remarks <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -464,7 +462,7 @@ const LandingPage = () => {
                       onChange={handleFormChange}
                       placeholder="Your message"
                       rows={4}
-                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"
+                      className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"
                       required
                     />
                     {formData.remarks && !isValidRemarks(formData.remarks) && (
@@ -507,44 +505,43 @@ const LandingPage = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
-              style={{ background: "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)" }}
             >
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h2 className="text-2xl font-bold text-slate-800">About Us – EduRox</h2>
+                  <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">About Us – EduRox</h2>
                   <button
                     onClick={() => setShowAboutUs(false)}
-                    className="text-slate-500 hover:text-slate-800 text-2xl leading-none transition"
+                    className="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 text-2xl leading-none transition"
                     aria-label="Close"
                   >
                     ×
                   </button>
                 </div>
 
-                <p className="text-lg font-semibold text-slate-700 mb-4">
+                <p className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-4">
                   Empowering the Next Generation of Learners 🚀
                 </p>
 
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                   EduRox is a modern Learning Management System designed to make education accessible, engaging, and future-ready. Built with powerful MERN stack technology, our platform connects students, educators, and administrators in one seamless digital ecosystem.
                 </p>
 
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                   We believe learning should not be limited by geography, time, or traditional boundaries. EduRox enables students to access structured courses, interactive content, and real-time progress tracking — all from a single intuitive dashboard.
                 </p>
 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-slate-800 mb-1">🎯 Our Mission</h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <h3 className="font-semibold text-slate-800 dark:text-slate-200 mb-1">🎯 Our Mission</h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                       To simplify digital education and empower learners with tools that enhance knowledge, skill development, and career growth.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-800 mb-1">🌍 Our Vision</h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <h3 className="font-semibold text-slate-800 dark:text-slate-200 mb-1">🌍 Our Vision</h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                       To build a technology-driven learning environment where education is flexible, inclusive, and impactful.
                     </p>
                   </div>
