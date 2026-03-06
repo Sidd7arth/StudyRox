@@ -5,23 +5,35 @@ exports.protect = async (req, res, next) => {
   let token;
 
   if (req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")) {
+    req.headers.authorization.startsWith("Bearer")) {
 
     token = req.headers.authorization.split(" ")[1];
 
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      req.user = await User.findById(decoded.id).select("-password");
+      if (decoded.id === "admin_id") {
+        req.user = {
+          _id: "admin_id",
+          name: process.env.ADMIN_NAME || "Admin",
+          email: process.env.ADMIN_EMAIL,
+          role: "admin"
+        };
+      } else {
+        req.user = await User.findById(decoded.id).select("-password");
+        if (!req.user) {
+          throw new Error("User not found");
+        }
+      }
 
-      next();
+      return next();
     } catch (error) {
-      res.status(401).json({ message: "Not authorized" });
+      return res.status(401).json({ message: "Not authorized" });
     }
   }
 
   if (!token) {
-    res.status(401).json({ message: "No token" });
+    return res.status(401).json({ message: "No token" });
   }
 };
 
